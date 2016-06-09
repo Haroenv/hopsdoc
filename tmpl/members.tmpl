@@ -1,38 +1,42 @@
-<?js
+<%
 var data = obj;
 var self = this;
-?>
-<h4 class="name" id="<?js= id ?>"><?js= data.attribs + name + (data.signature ? data.signature : '') ?></h4>
+%>
+<% if (data.name) { %>
+  <h2><%= name %></h2>
+<% } %>
+<h4 class="name" id="<%= id %>"><%= data.attribs + name + (data.signature ? data.signature : '') %></h4>
 
-<?js if (data.summary) { ?>
-<p class="summary"><?js= summary ?></p>
-<?js } ?>
+<% if (data.summary) { %>
+<p class="summary"><%= summary %></p>
+<% } %>
 
-<?js if (data.description) { ?>
+
+<% if (data.description) { %>
 <div class="description">
-    <?js= data.description ?>
+    <%= data.description %>
 </div>
-<?js } ?>
+<% } %>
 
-<?js if (data.type && data.type.names) {?>
+<% if (data.type && data.type.names) {%>
     <h5>Type:</h5>
     <ul>
         <li>
-            <?js= self.partial('type.tmpl', data.type.names) ?>
+            <%= self.partial('type.tmpl', data.type.names) %>
         </li>
     </ul>
-<?js } ?>
+<% } %>
 
-<?js= this.partial('details.tmpl', data) ?>
+<%= this.partial('details.tmpl', data) %>
 
-<?js if (data.fires && fires.length) { ?>
+<% if (data.fires && fires.length) { %>
     <h5>Fires:</h5>
-    <ul><?js fires.forEach(function(f) { ?>
-        <li><?js= self.linkto(f) ?></li>
-    <?js }); ?></ul>
-<?js } ?>
+    <ul><% fires.forEach(function(f) { %>
+        <li><%= self.linkto(f) %></li>
+    <% }); %></ul>
+<% } %>
 
-<?js if (data.examples && examples.length) { ?>
-    <h5>Example<?js= examples.length > 1? 's':'' ?></h5>
-    <?js= this.partial('examples.tmpl', examples) ?>
-<?js } ?>
+<% if (data.examples && examples.length) { %>
+    <h5>Example<%= examples.length > 1? 's':'' %></h5>
+    <%= this.partial('examples.tmpl', examples) %>
+<% } %>
