@@ -1,8 +1,8 @@
-# Minami
+# Hopsdoc
 
-A clean, responsive documentation template theme for JSDoc 3.
+jsdoc theme for [hops](https://github.com/xing/hops)
 
-![Minami Screenshot](http://puu.sh/gOyNe/66c3adcb97.png)
+Forked from [this amazng theme](https://github.com/nathancahill/minami)
 
 ## Uses
 
@@ -13,7 +13,7 @@ A clean, responsive documentation template theme for JSDoc 3.
 ## Install
 
 ```bash
-$ npm install --save-dev minami
+$ npm install --save-dev https://github.com/xing/hopsdoc.git
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ $ npm install --save-dev minami
 Clone repository to your designated `jsdoc` template directory, then:
 
 ```bash
-$ jsdoc entry-file.js -t path/to/minami
+$ jsdoc entry-file.js -t path/to/hopsdoc
 ```
 
 ### Node.js Dependency
@@ -30,7 +30,7 @@ In your projects `package.json` file add a generate script:
 
 ```json
 "script": {
-  "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
+  "generate-docs": "jsdoc -c .jsdoc.json"
 }
 ```
 
@@ -38,7 +38,7 @@ In your `.jsdoc.json` file, add a template option.
 
 ```json
 "opts": {
-  "template": "node_modules/minami"
+  "template": "node_modules/hopsdoc"
 }
 ```
 
@@ -51,8 +51,8 @@ In your `.jsdoc.json` file, add a template option.
         "dictionaries": ["jsdoc"]
     },
     "source": {
-        "include": ["lib", "package.json", "README.md"],
-        "includePattern": ".js$",
+        "include": ["src", "package.json", "README.md"],
+        "includePattern": "\\.js$",
         "excludePattern": "(node_modules/|docs)"
     },
     "plugins": [
@@ -63,11 +63,11 @@ In your `.jsdoc.json` file, add a template option.
         "monospaceLinks": true
     },
     "opts": {
-        "destination": "./docs/",
+        "destination": "docs/",
         "encoding": "utf8",
         "private": true,
         "recurse": true,
-        "template": "./node_modules/minami"
+        "template": "node_modules/hopsdoc"
     }
 }
 ```
