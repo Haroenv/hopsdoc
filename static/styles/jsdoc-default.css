@@ -563,7 +563,7 @@ table {
         transition: transform 0.2s ease-in-out;
         transform-origin: 0% 100%;
         background-color: #FFFFFF;
-        transform: scale(1/20, 1); }
+        transform: scale(0.05, 1); }
       .main-nav li > a:visited {
         color: #FFFFFF; }
       .main-nav li > a:hover:before {
@@ -573,10 +573,10 @@ table {
       font-weight: normal;
       font-family: Monacco, Consolas, monospace; }
       .main-nav li li > a:before {
-        transform: scale(1/10, 1); }
+        transform: scale(0.1, 1); }
     .main-nav li li li > a {
       padding-left: 3rem;
-      transform: scale(1/10, 1); }
+      transform: scale(0.1, 1); }
     .main-nav li[data-type="method"] > a {
       color: #66CCFF; }
       .main-nav li[data-type="method"] > a:before {
@@ -613,7 +613,7 @@ table {
       transition: transform 0.2s ease-in-out;
       transform-origin: 0% 100%;
       background-color: #74B4E2;
-      transform: scale(1/10, 1); }
+      transform: scale(0.1, 1); }
     .main-nav .nav-header h1 > a:hover, .main-nav .nav-header h2 > a:hover, .main-nav .nav-header h3 > a:hover, .main-nav .nav-header h4 > a:hover {
       text-decoration: none; }
       .main-nav .nav-header h1 > a:hover:before, .main-nav .nav-header h2 > a:hover:before, .main-nav .nav-header h3 > a:hover:before, .main-nav .nav-header h4 > a:hover:before {

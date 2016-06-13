@@ -132,7 +132,7 @@
                 transition: transform $speed ease-in-out;
                 transform-origin: 0% 100%;
                 background-color: $first-level-color;
-                transform: scale(1 / 20, 1);
+                transform: scale((1 / 20), 1);
             }
 
             &:before {}
@@ -154,13 +154,13 @@
             font-family: $monospace;
 
             &:before {
-                transform: scale(1 / 10, 1);
+                transform: scale((1 / 10), 1);
             }
         }
 
         li li > a {
             padding-left: 3rem;
-            transform: scale(1 / 10, 1);
+            transform: scale((1 / 10), 1);
         }
 
         &[data-type="method"] > a {
@@ -221,7 +221,7 @@
                     transition: transform $speed ease-in-out;
                     transform-origin: 0% 100%;
                     background-color: $header-level-color;
-                    transform: scale(1 / 10, 1);
+                    transform: scale((1 / 10), 1);
                 }
 
                 &:hover {
