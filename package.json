@@ -11,15 +11,20 @@
     "url": "https://github.com/xing/hopsdoc.git"
   },
   "author": [
-    "Nijiko Yonskai <nijikokun@gmail.com>", 
+    "Nijiko Yonskai <nijikokun@gmail.com>",
     "Gregor Adams <greg@pixelass.com>"
   ],
-  "licenses": [{
-    "type": "Apache-2.0",
-    "url": "http://www.apache.org/licenses/LICENSE-2.0"
-  }],
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/xing/hopsdoc/issues"
   },
-  "homepage": "https://github.com/xing/hopsdoc"
+  "homepage": "https://github.com/xing/hopsdoc",
+  "devDependencies": {
+    "taffydb": "^2.7.2"
+  }
 }

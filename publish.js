@@ -319,7 +319,9 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         });
 
         if (itemsNav !== '') {
-            nav += '<h3>' + itemHeading + '</h3><ul>' + itemsNav + '</ul>';
+            nav +=  '<header class="nav-header"><h3><span>' + itemHeading + '</span></h3></header><ul>' + itemsNav + '</ul>';
+        } else {
+
         }
     }
 
@@ -349,7 +351,7 @@ function linktoExternal(longName, name) {
  * @return {string} The HTML for the navigation sidebar.
  */
 function buildNav(members) {
-    var nav = '<h2><a href="index.html">Home</a></h2>';
+    var nav = '<header class="nav-header"><h2><a href="index.html">Home</a></h2></header>';
     var seen = {};
     var seenTutorials = {};
 

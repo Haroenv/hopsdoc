@@ -2,11 +2,12 @@
 var data = obj;
 var self = this;
 %>
-<article>
-    <hr>
+<article class="card card__<%= data.kind %>">
+
     <% if (data.name) { %>
       <h2><%= name %></h2>
     <% } %>
+    <pre class="prettyprint"><code><%=  JSON.stringify(data.longname) %></code></pre>
     <% if (data.kind !== 'module') { %>
         <% if (data.kind === 'class' && data.classdesc) { %>
         <h3>Constructor</h3>

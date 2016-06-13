@@ -2,6 +2,6 @@
     var data = obj;
     var self = this;
     data.forEach(function(name, i) { %>
-<span class="param-type"><%= self.linkto(name, self.htmlsafe(name)) %></span>
+<span class="__tag param-type param-type-<%= name.toLowerCase() %>"><%= self.linkto(name, self.htmlsafe(name)) %></span>
 <% if (i < data.length-1) { %>|<% } %>
 <% }); %>

@@ -2,6 +2,7 @@
 var data = obj;
 var self = this;
 %>
+<article class="card">
 <% if (data.name) { %>
   <h2><%= name %></h2>
 <% } %>
@@ -40,3 +41,4 @@ var self = this;
     <h5>Example<%= examples.length > 1? 's':'' %></h5>
     <%= this.partial('examples.tmpl', examples) %>
 <% } %>
+</article>

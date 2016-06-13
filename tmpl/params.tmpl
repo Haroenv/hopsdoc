@@ -92,15 +92,15 @@
             <% if (params.hasAttributes) {%>
                 <td class="attributes">
                 <% if (param.optional) { %>
-                    &lt;optional><br>
+                    <span class="__tag attr attr-optional">optional</span><br>
                 <% } %>
 
                 <% if (param.nullable) { %>
-                    &lt;nullable><br>
+                    <span class="__tag attr attr-nullable">nullable></span><br>
                 <% } %>
 
                 <% if (param.variable) { %>
-                    &lt;repeatable><br>
+                    <span class="__tag attr attr-repeatable">repeatable></span><br>
                 <% } %>
                 </td>
             <% } %>
