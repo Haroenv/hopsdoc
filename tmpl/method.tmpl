@@ -2,10 +2,11 @@
 var data = obj;
 var self = this;
 %>
-<article class="card card__<%= data.kind %>">
+<article class="card card__<%= data.kind %>" id="<%= id %>">
+<%= self.partial('code-source.tmpl',data) %>
 
     <% if (data.name) { %>
-      <h2><%= name %></h2>
+      <h2 ><%= name %></h2>
     <% } %>
     <pre class="prettyprint"><code><%=  JSON.stringify(data.longname) %></code></pre>
     <% if (data.kind !== 'module') { %>
@@ -13,7 +14,7 @@ var self = this;
         <h3>Constructor</h3>
         <% } %>
 
-        <h4 class="name" id="<%= id %>"><%= data.attribs + (kind === 'class' ? 'new ' : '') +
+        <h4 class="name"><%= data.attribs + (kind === 'class' ? 'new ' : '') +
         name + (data.signature || '') %></h4>
     <% } %>
 

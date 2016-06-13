@@ -294,20 +294,42 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         var itemsNav = '';
 
         items.forEach(function(item) {
+            var typedefs = find({kind:'typedef', memberof: item.longname});
             var methods = find({kind:'function', memberof: item.longname});
             var members = find({kind:'member', memberof: item.longname});
-
             if ( !hasOwnProp.call(item, 'longname') ) {
                 itemsNav += '<li>' + linktoFn('', item.name);
                 itemsNav += '</li>';
             } else if ( !hasOwnProp.call(itemsSeen, item.longname) ) {
                 itemsNav += '<li>' + linktoFn(item.longname, item.name.replace(/^module:/, ''));
+                if (members.length) {
+                    itemsNav += "<ul class='members'>";
+
+                    members.forEach(function (member) {
+                        itemsNav += "<li data-type='member'>";
+                        itemsNav += linkto(member.longname, member.name);
+                        itemsNav += "</li>";
+                    });
+
+                    itemsNav += "</ul>";
+                }
                 if (methods.length) {
                     itemsNav += "<ul class='methods'>";
 
                     methods.forEach(function (method) {
                         itemsNav += "<li data-type='method'>";
                         itemsNav += linkto(method.longname, method.name);
+                        itemsNav += "</li>";
+                    });
+
+                    itemsNav += "</ul>";
+                }
+                if (typedefs.length) {
+                    itemsNav += "<ul class='typedefs'>";
+
+                    typedefs.forEach(function (typedef) {
+                        itemsNav += "<li data-type='typedef'>";
+                        itemsNav += linkto(typedef.longname, typedef.name);
                         itemsNav += "</li>";
                     });
 

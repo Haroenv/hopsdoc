@@ -1,0 +1,12 @@
+<%
+var data = obj;
+var self = this;
+%>
+
+<section class="code-source">
+  <div class="link-box">
+    <% if (data.meta && self.outputSourceFiles) {%>
+    <%= self.linkto(meta.shortpath) %> <%= self.linkto(meta.shortpath, 'line ' + meta.lineno, null, 'line' + meta.lineno) %>
+    <% } %>
+  </div>
+</section>

@@ -1,7 +1,12 @@
 <%
     var data = obj;
     var self = this;
+    var APIURL = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/";
+    var Global_Objects = ['array','arraybuffer','atomics','boolean','dataview','date','error','evalerror','float32array','float64array','function','generator','generatorfunction','infinity','int16array','int32array','int8array','internalerror','intl','intl.collator','intl.datetimeformat','intl.numberformat','iterator','json','map','math','nan','number','object','parallelarray','promise','proxy','rangeerror','referenceerror','reflect','regexp','set','sharedarraybuffer','stopiteration','string','symbol','syntaxerror','typeerror','typedarray','urierror','uint16array','uint32array','uint8array','uint8clampedarray','weakmap','weakset','decodeuri','decodeuricomponent','encodeuri','encodeuricomponent','escape','eval','isfinite','isnan','null','parsefloat','parseint','undefined','unescape','uneval'];
+    //--
     data.forEach(function(name, i) { %>
-<span class="__tag param-type param-type-<%= name.toLowerCase() %>"><%= self.linkto(name, self.htmlsafe(name)) %></span>
+<span class="__tag param-type param-type-<%= name.toLowerCase() %>"><% if(Global_Objects.indexOf(name.toLowerCase())>=0){ %><a href="<%=APIURL%><%= name.toLowerCase() %>" target="_blank"><%= name %></a>
+
+<%} else {%><%= self.linkto(name, self.htmlsafe(name)) %><%}%></span>
 <% if (i < data.length-1) { %>|<% } %>
 <% }); %>

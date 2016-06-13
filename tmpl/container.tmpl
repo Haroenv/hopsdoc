@@ -21,7 +21,7 @@
 
 <header>
     <% if (!doc.longname || doc.kind !== 'module') { %>
-        <h2><% if (doc.ancestors && doc.ancestors.length) { %>
+        <h2 class="section-title"><% if (doc.ancestors && doc.ancestors.length) { %>
             <span class="ancestors"><%= doc.ancestors.join('') %></span>
         <% } %>
         <%= doc.name %>
@@ -86,7 +86,7 @@
     %>
         <h3 class="subsection-title">Classes</h3>
 
-        <dl><% classes.forEach(function(c) { %>
+        <dl class="classes"><% classes.forEach(function(c) { %>
             <dt><%= self.linkto(c.longname, c.name) %></dt>
             <dd><% if (c.summary) { %><%= c.summary %><% } %></dd>
         <% }); %></dl>
@@ -98,7 +98,7 @@
     %>
         <h3 class="subsection-title">Mixins</h3>
 
-        <dl><% mixins.forEach(function(m) { %>
+        <dl class="mixins"><% mixins.forEach(function(m) { %>
             <dt><%= self.linkto(m.longname, m.name) %></dt>
             <dd><% if (m.summary) { %><%= m.summary %><% } %></dd>
         <% }); %></dl>
@@ -110,7 +110,7 @@
     %>
         <h3 class="subsection-title">Namespaces</h3>
 
-        <dl><% namespaces.forEach(function(n) { %>
+        <dl class="namespaces"><% namespaces.forEach(function(n) { %>
             <dt><%= self.linkto(n.longname, n.name) %></dt>
             <dd><% if (n.summary) { %><%= n.summary %><% } %></dd>
         <% }); %></dl>
