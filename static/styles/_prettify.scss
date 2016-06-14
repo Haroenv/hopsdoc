@@ -2,18 +2,14 @@
   background: #fff;
   font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
 
-
-    &.linenums {
-      padding: 0;
-    }
+  &.linenums {
+    padding: 0;
+  }
 }
-
 
 .pln {
   color: #333;
 }
-
-
 
 li.L0,
 li.L1,
@@ -31,7 +27,6 @@ li.L9 {
 }
 
 @media screen {
-
   /* string content */
 
   .str {
@@ -123,22 +118,22 @@ ol.linenums {
   margin-bottom: 0;
   color: #cccccc;
 
-    li {
-        border-left: 1px solid;
-        padding-left: 4px;
+  li {
+    border-left: 1px solid;
+    padding-left: 4px;
 
-        &.selected {
-          background-color: rgba($theme-fancy,.5)
-        }
-        &:first-child {
-          padding-top: 1rem;
-        }
-        &:last-child {
-          padding-bottom: 1rem;
-        }
+    &.selected {
+      background-color: rgba($theme-fancy, 0.5);
     }
+
+    &:first-child {
+      padding-top: 1rem;
+    }
+
+    &:last-child {
+      padding-bottom: 1rem;
+    }
+  }
 }
-
-
 
 /*# sourceMappingURL=_prettify-tomorrow.css.map */
