@@ -4,7 +4,8 @@
   "description": "jsdoc theme for hops",
   "main": "publish.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transform": "rm -rf tmpl && cp -rf _tmpl tmpl && replace '<%' '<?js' tmpl -r && replace '%>' '?>' tmpl -r"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/xing/hopsdoc",
   "devDependencies": {
+    "replace": "^0.3.0",
     "taffydb": "^2.7.2"
   }
 }
