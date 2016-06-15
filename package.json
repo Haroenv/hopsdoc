@@ -1,11 +1,11 @@
 {
   "name": "hopsdoc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "jsdoc theme for hops",
   "main": "publish.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transform": "rm -rf tmpl && cp -rf _tmpl tmpl && replace '<%' '<?js' tmpl -r && replace '%>' '?>' tmpl -r"
+    "prepublish": "rm -rf tmpl && cp -rf _tmpl tmpl && replace '<%' '<?js' tmpl -r && replace '%>' '?>' tmpl -r"
   },
   "repository": {
     "type": "git",
