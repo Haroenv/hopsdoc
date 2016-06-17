@@ -11,6 +11,8 @@ I put some effort into a demo by documenting this (mostly not written by myself)
 * [hopsdoc documentation](http://xing.github.io/hopsdoc)
 * [hops documentation](http://xing.github.io/hops)
 
+![demo.png](https://raw.githubusercontent.com/xing/hopsdoc/master/demo.png)
+
 ## Uses
 
 - [the Taffy Database library](http://taffydb.com/)
