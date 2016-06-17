@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav class="main-nav">
+    <header class="nav-header"><h2><a href="index.html">Home</a></h2></header><header class="nav-header"><h3><span>Modules</span></h3></header><ul><li><a href="module-publish.html">publish</a><ul class='methods'><li data-type='method'><a href="module-publish.html#.publish">publish</a></li><li data-type='method'><a href="module-publish.html#~addAttribs">addAttribs</a></li><li data-type='method'><a href="module-publish.html#~addNonParamAttributes">addNonParamAttributes</a></li><li data-type='method'><a href="module-publish.html#~addParamAttributes">addParamAttributes</a></li><li data-type='method'><a href="module-publish.html#~addSignatureParams">addSignatureParams</a></li><li data-type='method'><a href="module-publish.html#~addSignatureReturns">addSignatureReturns</a></li><li data-type='method'><a href="module-publish.html#~addSignatureTypes">addSignatureTypes</a></li><li data-type='method'><a href="module-publish.html#~buildAttribsString">buildAttribsString</a></li><li data-type='method'><a href="module-publish.html#~buildItemTypeStrings">buildItemTypeStrings</a></li><li data-type='method'><a href="module-publish.html#~buildNav">buildNav</a></li><li data-type='method'><a href="module-publish.html#~find">find</a></li><li data-type='method'><a href="module-publish.html#~generate">generate</a></li><li data-type='method'><a href="module-publish.html#~getAncestorLinks">getAncestorLinks</a></li><li data-type='method'><a href="module-publish.html#~getPathFromDoclet">getPathFromDoclet</a></li><li data-type='method'><a href="module-publish.html#~getSignatureAttributes">getSignatureAttributes</a></li><li data-type='method'><a href="module-publish.html#~hashToLink">hashToLink</a></li><li data-type='method'><a href="module-publish.html#~needsSignature">needsSignature</a></li><li data-type='method'><a href="module-publish.html#~shortenPaths">shortenPaths</a></li><li data-type='method'><a href="module-publish.html#~tutoriallink">tutoriallink</a></li><li data-type='method'><a href="module-publish.html#~updateItemName">updateItemName</a></li></ul></li></ul>
+</nav>
+
+<main id="main" class="main-content">
+    <section>
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article class="card"><h1>Hopsdoc</h1><p>jsdoc theme for <a href="https://github.com/xing/hops">hops</a></p>
+<p>Forked from <a href="https://github.com/nathancahill/minami">this amazing theme</a></p>
+<h2>DEMO</h2><p>I put some effort into a demo by documenting this (mostly not written by myself) code. FUN times.. fun times.</p>
+<ul>
+<li><a href="http://xing.github.io/hopsdoc">hopsdoc documentation</a></li>
+<li><a href="http://xing.github.io/hops">hops documentation</a></li>
+</ul>
+<h2>Uses</h2><ul>
+<li><a href="http://taffydb.com/">the Taffy Database library</a></li>
+<li><a href="http://documentcloud.github.com/underscore/#template">Underscore Template library</a></li>
+</ul>
+<h2>Install</h2><pre class="prettyprint source lang-bash"><code>$ npm install --save-dev hopsdoc</code></pre><h2>Usage</h2><p>Clone repository to your designated <code>jsdoc</code> template directory, then:</p>
+<pre class="prettyprint source lang-bash"><code>$ jsdoc entry-file.js -t path/to/hopsdoc</code></pre><h2>build this theme</h2><p>I'm not a fan of jsdoc's custom delimiters. This theme uses default underscore templates (<code>&lt;%</code> instead of <code>&lt;?js</code>)
+and has a script to transform to in both directions.</p>
+<p>files in <code>tmpl</code> are not commited and should not be modified. This folder is generated and used as npm export.<br>If you want to convert your &quot;custom delimiter theme&quot; to make it compatible to this project you can replace the <code>tmpl</code> folder and generate your development version</p>
+<pre class="prettyprint source lang-bash"><code>## generate custom delimiter version
+npm run _to-custom
+## generate default delimiter version
+npm run _from-custom
+## generate custom delimiter version and build styles
+npm run build</code></pre><h2>add custom styling</h2><pre class="prettyprint source lang-bash"><code>cp node_modules/hopsdoc ./path/to/my/custom/theme
+cd ./path/to/my/custom/theme
+npm i 
+npm run watch-styles
+## or ...
+## modify styles in `.static/styles/*.scss`
+## then ...
+npm run styles</code></pre><h3>Node.js Dependency</h3><p>In your projects <code>package.json</code> file add a generate script:</p>
+<pre class="prettyprint source lang-json"><code>&quot;script&quot;: {
+  &quot;generate-docs&quot;: &quot;jsdoc -c .jsdoc.json&quot;
+}</code></pre><p>In your <code>.jsdoc.json</code> file, add a template option.</p>
+<pre class="prettyprint source lang-json"><code>&quot;opts&quot;: {
+  &quot;template&quot;: &quot;node_modules/hopsdoc&quot;
+}</code></pre><h3>Example JSDoc Config</h3><pre class="prettyprint source lang-json"><code>{
+    &quot;tags&quot;: {
+        &quot;allowUnknownTags&quot;: true,
+        &quot;dictionaries&quot;: [&quot;jsdoc&quot;]
+    },
+    &quot;source&quot;: {
+        &quot;include&quot;: [&quot;src&quot;, &quot;package.json&quot;, &quot;README.md&quot;],
+        &quot;includePattern&quot;: &quot;\\.js$&quot;,
+        &quot;excludePattern&quot;: &quot;(node_modules/|docs)&quot;
+    },
+    &quot;plugins&quot;: [
+        &quot;plugins/markdown&quot;
+    ],
+    &quot;templates&quot;: {
+        &quot;cleverLinks&quot;: false,
+        &quot;monospaceLinks&quot;: true
+    },
+    &quot;opts&quot;: {
+        &quot;destination&quot;: &quot;docs/&quot;,
+        &quot;encoding&quot;: &quot;utf8&quot;,
+        &quot;private&quot;: true,
+        &quot;recurse&quot;: true,
+        &quot;template&quot;: &quot;node_modules/hopsdoc&quot;
+    }
+}</code></pre><h2>License</h2><p>Licensed under the Apache2 license.</p></article>
+    </section>
+
+
+
+
+
+
+    </section>
+</main>
+
+
+<footer class="main-footer">
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Jun 17 2016 13:50:43 GMT+0200 (CEST)
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
