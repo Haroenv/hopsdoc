@@ -1,16 +1,20 @@
 @import "normalize";
 
 $theme-bg: #fff;
-$theme-color: #121212;
+$theme-color: #000;
 
-$theme-fancy: #74B4E2;
-$theme-fancy-rev: #fff;
+$theme-fancy: #f7f7f7;
+$theme-fancy-rev: #333;
 
-$link-color: #0000FF;
-$link-visited-color: #8000FF;
+$link-color: $theme-color;
+$link-visited-color: $theme-color;
 
 $theme-code: #fff;
 $theme-code-color: #000;
+
+$theme-member: #ddd;
+$theme-method: #ccc;
+$theme-typedef: #bbb;
 
 $monospace: Monacco, Consolas, monospace;
 $sans-serif: Arial, Verdana, sans-serif;

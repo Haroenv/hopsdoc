@@ -398,10 +398,10 @@ function buildNav(members) {
 
         if (!globalNav) {
             // turn the heading into a link so you can actually get to the global page
-            nav += '<h3>' + linkto('global', 'Global') + '</h3>';
+            nav += '<header class="nav-header"><h3>' + linkto('global', 'Global') + '</h3></header>';
         }
         else {
-            nav += '<h3>Global</h3><ul>' + globalNav + '</ul>';
+            nav += '<header class="nav-header"><h3>Global</h3></header><ul>' + globalNav + '</ul>';
         }
     }
 

@@ -87,14 +87,14 @@
 }
 
 .main-nav {
-  $header-level-color: $theme-fancy;
-  $first-level-color: #FFFFFF;
-  $method-color: #66CCFF;
-  $typedef-color: #66FF66;
-  $member-color: #FFFF66;
+  $header-level-color: $theme-bg;
+  $first-level-color: $theme-bg;
+  $method-color: $theme-method;
+  $typedef-color: $theme-typedef;
+  $member-color: $theme-member;
   $speed: 0.2s;
 
-  height: calc(100% - 50px);
+  height: calc(100% - 6rem);
   flex: 0 0 20rem;
   width: 20rem;
 
@@ -104,8 +104,8 @@
     z-index: 5;
   }
 
-  background-color: #222;
-  color: #fff;
+  background-color: $theme-fancy-rev;
+  color: $theme-fancy;
   overflow: auto;
 
   ul {
@@ -114,7 +114,7 @@
   }
 
   li {
-    margin: 2em 0 0;
+    margin: .5em 0 2em;
 
     li {
       margin: 0;

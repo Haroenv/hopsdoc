@@ -1,11 +1,16 @@
 {
   "name": "hopsdoc",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "jsdoc theme for hops",
   "main": "publish.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "rm -rf tmpl && cp -rf _tmpl tmpl && replace '<%' '<?js' tmpl -r && replace '%>' '?>' tmpl -r"
+    "build": "npm run styles && npm run _to-custom",
+    "prepublish": "npm run build",
+    "_to-custom": "rm -rf tmpl && cp -rf _tmpl tmpl && replace '<%' '<?js' tmpl -r && replace '%>' '?>' tmpl -r",
+    "_from-custom": "rm -rf _tmpl && cp -rf tmpl _tmpl && replace '<\\?js' '<%' _tmpl -r && replace '\\?>'  '%>' _tmpl -r",
+    "styles": "node-sass ./static/styles/jsdoc-default.scss -o ./static/styles",
+    "watch-styles": "node-sass -w ./static/styles/jsdoc-default.scss -o ./static/styles"
   },
   "repository": {
     "type": "git",
@@ -26,6 +31,7 @@
   },
   "homepage": "https://github.com/xing/hopsdoc",
   "devDependencies": {
+    "node-sass": "^3.7.0",
     "replace": "^0.3.0",
     "taffydb": "^2.7.2"
   }

@@ -29,12 +29,16 @@
             <sup class="variation"><%= doc.variation %></sup>
         <% } %></h2>
         <% if (doc.classdesc) { %>
+          <div class="card">
             <div class="class-description"><%= doc.classdesc %></div>
+            </div>
         <% } %>
     <% } else if (doc.kind === 'module' && doc.modules) { %>
         <% doc.modules.forEach(function(module) { %>
             <% if (module.classdesc) { %>
+              <div class="card">
                 <div class="class-description"><%= module.classdesc %></div>
+                </div>
             <% } %>
         <% }) %>
     <% } %>
@@ -44,7 +48,9 @@
     <div class="container-overview">
     <% if (doc.kind === 'module' && doc.modules) { %>
         <% if (doc.description) { %>
+    <div  class="card">
             <div class="description"><%= doc.description %></div>
+    </div>
         <% } %>
 
         <% doc.modules.forEach(function(module) { %>
@@ -54,7 +60,9 @@
         <%= self.partial('method.tmpl', doc) %>
     <% } else { %>
         <% if (doc.description) { %>
+    <div  class="card">
             <div class="description"><%= doc.description %></div>
+    </div>
         <% } %>
 
         <%= self.partial('details.tmpl', doc) %>
@@ -65,19 +73,22 @@
         <% } %>
     <% } %>
     </div>
-
     <% if (doc.augments && doc.augments.length) { %>
         <h3 class="subsection-title">Extends</h3>
+    <div  class="card">
 
         <%= self.partial('augments.tmpl', doc) %>
+    </div>
     <% } %>
 
     <% if (doc.requires && doc.requires.length) { %>
         <h3 class="subsection-title">Requires</h3>
+    <div  class="card">
 
         <ul><% doc.requires.forEach(function(r) { %>
             <li><%= self.linkto(r, r) %></li>
         <% }); %></ul>
+    </div>
     <% } %>
 
     <%
@@ -85,11 +96,13 @@
         if (!isGlobalPage && classes && classes.length) {
     %>
         <h3 class="subsection-title">Classes</h3>
+    <div  class="card">
 
         <dl class="classes"><% classes.forEach(function(c) { %>
             <dt><%= self.linkto(c.longname, c.name) %></dt>
             <dd><% if (c.summary) { %><%= c.summary %><% } %></dd>
         <% }); %></dl>
+    </div>
     <% } %>
 
      <%
@@ -97,11 +110,13 @@
         if (!isGlobalPage && mixins && mixins.length) {
     %>
         <h3 class="subsection-title">Mixins</h3>
+    <div  class="card">
 
         <dl class="mixins"><% mixins.forEach(function(m) { %>
             <dt><%= self.linkto(m.longname, m.name) %></dt>
             <dd><% if (m.summary) { %><%= m.summary %><% } %></dd>
         <% }); %></dl>
+    </div>
     <% } %>
 
     <%
@@ -109,13 +124,14 @@
         if (!isGlobalPage && namespaces && namespaces.length) {
     %>
         <h3 class="subsection-title">Namespaces</h3>
+    <div  class="card">
 
         <dl class="namespaces"><% namespaces.forEach(function(n) { %>
             <dt><%= self.linkto(n.longname, n.name) %></dt>
             <dd><% if (n.summary) { %><%= n.summary %><% } %></dd>
         <% }); %></dl>
+    </div>
     <% } %>
-
     <%
         var members = self.find({kind: 'member', memberof: isGlobalPage ? {isUndefined: true} : doc.longname});
 

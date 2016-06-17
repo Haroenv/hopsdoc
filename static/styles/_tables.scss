@@ -16,6 +16,7 @@ table {
   th, td {
     vertical-align: baseline;
     padding: .5rem 0 .5em 1em;
+    text-align: left;
 
     p {
       &:first-child {
@@ -32,14 +33,13 @@ table {
     background-color: mix($theme-color, $theme-bg, 0%);
 
     &:nth-child(even) {
-      //background-color: mix($theme-color, $theme-bg, 5%);
-   
+      background-color: mix($theme-color, $theme-bg, 5%);
     }
   }
 
   thead {
     th, td {
-      border-bottom: 2px solid $theme-fancy;
+      border-bottom: 2px solid $theme-fancy-rev;
     }
   }
 }

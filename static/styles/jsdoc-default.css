@@ -382,13 +382,13 @@ body {
   overflow: hidden; }
 
 a {
-  color: #0000FF;
+  color: #000;
   font-weight: bold;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
   a:visited {
-    color: #8000FF; }
+    color: #000; }
 
 ul, ul li {
   list-style: none;
@@ -427,8 +427,8 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Monacco, Consolas, monospace;
     font-weight: normal;
     border-radius: 2px;
-    background-color: #74B4E2;
-    color: #fff; }
+    background-color: #f7f7f7;
+    color: #333; }
     h1.name a, h2.name a, h3.name a, h4.name a, h5.name a, h6.name a {
       color: currentColor;
       text-decoration: underline; }
@@ -454,15 +454,18 @@ table {
     border-spacing: 2px; }
   table th, table td {
     vertical-align: baseline;
-    padding: .5rem 0 .5em 1em; }
+    padding: .5rem 0 .5em 1em;
+    text-align: left; }
     table th p:first-child, table td p:first-child {
       margin-top: 0; }
     table th p:last-child, table td p:last-child {
       margin-bottom: 0; }
   table tr {
     background-color: white; }
+    table tr:nth-child(even) {
+      background-color: #f2f2f2; }
   table thead th, table thead td {
-    border-bottom: 2px solid #74B4E2; }
+    border-bottom: 2px solid #333; }
 
 .nav-trigger, [for=nav-trigger] {
   position: fixed;
@@ -473,8 +476,10 @@ table {
 
 .nav-trigger:checked ~ .navicon-button {
   display: none; }
+
 .nav-trigger:checked ~ .overlay {
   display: block; }
+
 .nav-trigger:checked ~ .main-nav {
   transform: translateX(0); }
 
@@ -492,13 +497,14 @@ table {
       pointer-events: none;
       opacity: 0;
       visibility: hidden; } }
+
 [for=nav-trigger].navicon-button {
   display: block;
   height: 3em;
   width: 3em;
   right: 0;
-  background: #fff;
-  color: #74B4E2; }
+  background: #333;
+  color: #f7f7f7; }
   @media screen and (min-width: 40rem) {
     [for=nav-trigger].navicon-button {
       display: none;
@@ -527,11 +533,11 @@ table {
       transform: translateY(300%); }
 
 .main-nav {
-  height: calc(100% - 50px);
+  height: calc(100% - 6rem);
   flex: 0 0 20rem;
   width: 20rem;
-  background-color: #222;
-  color: #fff;
+  background-color: #333;
+  color: #f7f7f7;
   overflow: auto; }
   @media screen and (max-width: 40rem) {
     .main-nav {
@@ -542,14 +548,14 @@ table {
     margin: 0;
     padding: 0; }
   .main-nav li {
-    margin: 2em 0 0; }
+    margin: .5em 0 2em; }
     .main-nav li li {
       margin: 0; }
     .main-nav li > a {
       display: block;
       padding: .5rem 1rem;
       font-weight: bold;
-      color: #FFFFFF;
+      color: #fff;
       position: relative;
       overflow: hidden; }
       .main-nav li > a:before {
@@ -562,10 +568,10 @@ table {
         height: 1px;
         transition: transform 0.2s ease-in-out;
         transform-origin: 0% 100%;
-        background-color: #FFFFFF;
+        background-color: #fff;
         transform: scale(0.05, 1); }
       .main-nav li > a:visited {
-        color: #FFFFFF; }
+        color: #fff; }
       .main-nav li > a:hover:before {
         transition-delay: 0.2s; }
     .main-nav li li > a {
@@ -578,17 +584,17 @@ table {
       padding-left: 3rem;
       transform: scale(0.1, 1); }
     .main-nav li[data-type="method"] > a {
-      color: #66CCFF; }
+      color: #ccc; }
       .main-nav li[data-type="method"] > a:before {
-        background-color: #66CCFF; }
+        background-color: #ccc; }
     .main-nav li[data-type="typedef"] > a {
-      color: #66FF66; }
+      color: #bbb; }
       .main-nav li[data-type="typedef"] > a:before {
-        background-color: #66FF66; }
+        background-color: #bbb; }
     .main-nav li[data-type="member"] > a {
-      color: #FFFF66; }
+      color: #ddd; }
       .main-nav li[data-type="member"] > a:before {
-        background-color: #FFFF66; }
+        background-color: #ddd; }
     .main-nav li:hover > a {
       text-decoration: none; }
       .main-nav li:hover > a:before, .main-nav li:hover > a:hover:before {
@@ -597,7 +603,7 @@ table {
     margin: 0;
     font-weight: normal; }
     .main-nav .nav-header h1 > a, .main-nav .nav-header h1 > span, .main-nav .nav-header h2 > a, .main-nav .nav-header h2 > span, .main-nav .nav-header h3 > a, .main-nav .nav-header h3 > span, .main-nav .nav-header h4 > a, .main-nav .nav-header h4 > span {
-      color: #74B4E2;
+      color: #fff;
       display: block;
       font-weight: normal;
       padding: .5rem 1rem;
@@ -612,7 +618,7 @@ table {
       height: 2px;
       transition: transform 0.2s ease-in-out;
       transform-origin: 0% 100%;
-      background-color: #74B4E2;
+      background-color: #fff;
       transform: scale(0.1, 1); }
     .main-nav .nav-header h1 > a:hover, .main-nav .nav-header h2 > a:hover, .main-nav .nav-header h3 > a:hover, .main-nav .nav-header h4 > a:hover {
       text-decoration: none; }
@@ -621,21 +627,25 @@ table {
 
 .main-content {
   flex: 1 1 1%;
-  background: #74B4E2;
-  color: #fff;
-  height: calc(100% - 50px);
+  background: #f7f7f7;
+  color: #333;
+  height: calc(100% - 6rem);
   padding: .5rem 1rem;
   overflow: auto; }
   .main-content > section {
-    max-width: 800px;
     margin: 2rem auto; }
 
 .main-footer {
-  height: 50px;
+  height: 6rem;
   flex: 0 0 100%;
-  background: red;
-  background: #e6e6e6;
-  color: #121212; }
+  padding: 2rem 1rem;
+  background: #333;
+  color: #f7f7f7; }
+  .main-footer a {
+    color: currentColor;
+    text-decoration: underline; }
+    .main-footer a:visited {
+      color: currentColor; }
 
 dl {
   position: relative;
@@ -652,13 +662,13 @@ dl {
     margin: 0;
     padding: .5rem 1rem; }
   dl.details {
-    border-color: #74B4E2; }
+    border-color: #333; }
   dl.classes {
-    border-color: #fff; }
+    border-color: #000; }
   dl.namespaces {
-    border-color: #fff; }
+    border-color: #000; }
   dl.mixins {
-    border-color: #fff; }
+    border-color: #000; }
 
 .container-overview > .description {
   padding: 1rem; }
@@ -666,8 +676,8 @@ dl {
 .signature-attributes {
   padding: 0 .25rem;
   margin: 0 .25rem;
-  background: #fff;
-  color: #74B4E2; }
+  background: #333;
+  color: #f7f7f7; }
 
 .code-source {
   display: flex;
@@ -676,20 +686,20 @@ dl {
     display: inline-flex; }
     .code-source .link-box a, .code-source .link-box a:visited {
       color: currentColor;
-      background: #74B4E2;
-      color: #fff;
+      background: #f7f7f7;
+      color: #333;
       padding: .25rem .5rem;
       margin: 0 .5em;
       border-radius: 2px;
       font-weight: normal; }
       .code-source .link-box a:hover, .code-source .link-box a:visited:hover {
         text-decoration: none;
-        background: #68a2cb; }
+        background: #dedede; }
 
 .card {
   padding: 1rem;
   background: #fff;
-  color: #121212;
+  color: #000;
   border-radius: 2px;
   overflow: hidden;
   margin: 2rem 1rem;
@@ -732,60 +742,76 @@ dl {
       color: white; }
 
 .attr-nullable {
-  background-color: #FF0000;
-  color: #990000; }
+  background-color: #eee;
+  color: #8f8f8f; }
+
 .attr-repeatable {
-  background-color: #FF8000;
-  color: #994d00; }
+  background-color: #ddd;
+  color: #858585; }
+
 .attr-optional {
-  background-color: #FFFF00;
-  color: #999900; }
+  background-color: #ccc;
+  color: #7a7a7a; }
 
 .param-type-string {
-  background-color: #FF0000;
-  color: #990000; }
+  background-color: #eee;
+  color: #8f8f8f; }
+
 .param-type-array {
-  background-color: #FF8000;
-  color: #994d00; }
+  background-color: #ddd;
+  color: #858585; }
+
 .param-type-object {
-  background-color: #FF8000;
-  color: #994d00; }
+  background-color: #ddd;
+  color: #858585; }
+
 .param-type-htmlelement {
-  background-color: #FFFF00;
-  color: #999900; }
+  background-color: #ccc;
+  color: #7a7a7a; }
+
 .param-type-number {
-  background-color: #80FF00;
-  color: #4d9900; }
+  background-color: #bbb;
+  color: #707070; }
+
 .param-type-integer {
-  background-color: #80FF00;
-  color: #4d9900; }
+  background-color: #bbb;
+  color: #707070; }
+
 .param-type-float {
-  background-color: #80FF00;
-  color: #4d9900; }
+  background-color: #bbb;
+  color: #707070; }
+
 .param-type-function {
-  background-color: #00FF80;
-  color: #00994d; }
+  background-color: #aaa;
+  color: #666666; }
+
 .param-type-module {
-  background-color: #00FF80;
-  color: #00994d; }
+  background-color: #aaa;
+  color: #666666; }
+
 .param-type-promise {
-  background-color: #00FF80;
-  color: #00994d; }
+  background-color: #aaa;
+  color: #666666; }
+
 .param-type-boolean {
-  background-color: #0080FF;
-  color: #004d99; }
+  background-color: #999;
+  color: #5c5c5c; }
+
 .param-type-class {
-  background-color: #00FF80;
-  color: #00994d; }
+  background-color: #aaa;
+  color: #666666; }
+
 .param-type-route {
-  background-color: #FF8000;
-  color: #994d00; }
+  background-color: #ddd;
+  color: #858585; }
+
 .param-type-history {
-  background-color: #FF8000;
-  color: #994d00; }
+  background-color: #ddd;
+  color: #858585; }
+
 .param-type-null {
-  background-color: #0080FF;
-  color: #004d99; }
+  background-color: #999;
+  color: #5c5c5c; }
 
 /* JSDoc prettify.js theme */
 /* plain text */
@@ -927,58 +953,46 @@ li.L9 {
   /* string content */
   .str {
     color: #183691; }
-
   /* keyword */
   .kwd {
     color: #a71d5d; }
-
   /* comment */
   .com {
     color: #969896; }
-
   /* type name */
   .typ {
     color: #0086b3; }
-
   /* literal value */
   .lit {
     color: #0086b3; }
-
   /* punctuation */
   .pun {
     color: #333; }
-
   /* lisp open bracket */
   .opn {
     color: #333; }
-
   /* lisp close bracket */
   .clo {
     color: #333; }
-
   /* markup tag name */
   .tag {
     color: #000080; }
-
   /* markup attribute name */
   .atn {
     color: #795da3; }
-
   /* markup attribute value */
   .atv {
     color: #183691; }
-
   /* declaration */
   .dec {
     color: #333; }
-
   /* variable name */
   .var {
     color: #008080; }
-
   /* function name */
   .fun {
     color: #900; } }
+
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
   margin-top: 0;
@@ -988,12 +1002,10 @@ ol.linenums {
     border-left: 1px solid;
     padding-left: 4px; }
     ol.linenums li.selected {
-      background-color: rgba(116, 180, 226, 0.5); }
+      background-color: rgba(247, 247, 247, 0.5); }
     ol.linenums li:first-child {
       padding-top: 1rem; }
     ol.linenums li:last-child {
       padding-bottom: 1rem; }
 
 /*# sourceMappingURL=_prettify-tomorrow.css.map */
-
-/*# sourceMappingURL=jsdoc-default.css.map */

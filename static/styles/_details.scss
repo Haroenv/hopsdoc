@@ -18,18 +18,18 @@ dl {
   }
 
   &.details {
-    border-color: $theme-fancy;
+    border-color: $theme-fancy-rev;
   }
 
   &.classes {
-    border-color: $theme-fancy-rev;
+    border-color: $theme-color;
   }
 
   &.namespaces {
-    border-color: $theme-fancy-rev;
+    border-color: $theme-color;
   }
 
   &.mixins {
-    border-color: $theme-fancy-rev;
+    border-color: $theme-color;
   }
 }
