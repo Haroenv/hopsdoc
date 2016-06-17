@@ -31,6 +31,7 @@ var view;
 var outdir = path.normalize(env.opts.destination);
 /**
  * find spec in global data
+ * @type Function
  * @param  {Object} spec - options for searching and filtering
  * @param  {Object} spec.kind - kind of doclet to look for
  * @param  {Object} spec.memberof - filter by ancestors
@@ -42,6 +43,7 @@ function find(spec) {
 
 /**
  * create a link to a tutorial
+ * @type Function
  * @param  {String} tutorial - tutorial = name of doclet
  * @return {String}          returns an HTML element as a string
  */
@@ -51,6 +53,7 @@ function tutoriallink(tutorial) {
 
 /**
  * create a link to a tutorial
+ * @type Function
  * @param  {Object} doclet - doclet to look for
  * @param  {Object} doclet.kind - kind of doclet to filter by
  * @return {String}          returns an HTML element as a string
@@ -61,6 +64,7 @@ function getAncestorLinks(doclet) {
 
 /**
  * create a link from a hash
+ * @type Function
  * @param  {Object} doclet - doclet to look for
  * @param  {String} hash - jsdoc version of window.location hash's
  * @return {String}          returns an HTML element as a string
@@ -76,6 +80,7 @@ function hashToLink(doclet, hash) {
 
 /**
  * create a link from a hash
+ * @type Function
  * @param  {Object} doclet - doclet to look for
  * @param  {Object} doclet.kind - kind of doclet to filter by
  * @return {Boolean}          returns true or false
@@ -103,6 +108,7 @@ function needsSignature(doclet) {
 
 /**
  * create a link from a hash
+ * @type Function
  * @param  {Object} item - item to look for
  * @param  {Boolean} item.optional - is item optional?
  * @param  {Boolean} item.nullable - is item nullable?
@@ -128,6 +134,7 @@ function getSignatureAttributes(item) {
 
 /**
  * get an updated name for an item (respects variable & signatures)
+ * @type Function
  * @param  {Object} item - item to update
  * @return {String}      returns updated item name
  */
@@ -149,6 +156,7 @@ function updateItemName(item) {
 
 /**
  * add params 
+ * @type Function
  * @param {Array} params - list of params to add
  * @param {Array} returns an updated list
  */
@@ -160,6 +168,7 @@ function addParamAttributes(params) {
 
 /**
  * build item types from item
+ * @type Function
  * @param  {Object} item - item to use as source
  * @param  {Object} item.type - item type
  * @param  {Object} item.type.names - type names
@@ -179,6 +188,7 @@ function buildItemTypeStrings(item) {
 
 /**
  * build item types from item
+ * @type Function
  * @param  {Array} attribs list of attributes
  * @return {String}         returns a string of the list
  */
@@ -194,6 +204,7 @@ function buildAttribsString(attribs) {
 
 /**
  * add attributes missing in params
+ * @type Function
  * @param {Array} items - tiems to look at
  * @return {Array} returns a list of types
  */
@@ -209,6 +220,7 @@ function addNonParamAttributes(items) {
 
 /**
  * add signature params to function
+ * @type Function
  * @param {Object} f function object
  * @param {Object} [f.params=undefined] - params to include
  * @param {Object} [f.signature=undefined] - signature to add
@@ -220,6 +232,7 @@ function addSignatureParams(f) {
 
 /**
  * add signature returns to function
+ * @type Function
  * @param {Object} f function object
  * @param {Object} [f.returns=undefined] - returns to include
  * @param {Object} [f.signature=undefined] - signature to add
@@ -258,6 +271,7 @@ function addSignatureReturns(f) {
 
 /**
  * add signature types to function
+ * @type Function
  * @param {Object} f function object
  * @param {Object} [f.type=undefined] - types to include
  * @param {Object} [f.signature=undefined] - signature to add
@@ -271,6 +285,7 @@ function addSignatureTypes(f) {
 
 /**
  * add attributes to function
+ * @type Function
  * @param {Object} f function object
  * @param {Object} [f.attribs=undefined] - attributes to include
  */
@@ -283,6 +298,7 @@ function addAttribs(f) {
 
 /**
  * shorten paths
+ * @type Function
  * @param  {Object} files - Object containing files
  * @param  {String|RegEx} commonPrefix - regex pattern or sting to replace
  * @return {Object}              return the mutated Object
@@ -299,6 +315,7 @@ function shortenPaths(files, commonPrefix) {
 
 /**
  * extract path from doclet
+ * @type Function
  * @param  {Object} doclet - doclet to extract from
  * @return {String|null}     returns a path or filename unless no meta is given
  */
@@ -314,6 +331,7 @@ function getPathFromDoclet(doclet) {
 
 /**
  * generate documentation
+ * @type Function
  * @param  {String} type - type of doclet
  * @param  {String} title - title of doclet
  * @param  {Array} docs - list of documentations
@@ -341,6 +359,7 @@ function generate(type, title, docs, filename, resolveLinks) {
 
 /**
  * generate source files for modules and files
+ * @type Function
  * @param  {Object} sourceFiles Object containing all files
  * @param  {String} encoding    character encoding
  */
@@ -372,6 +391,7 @@ function generateSourceFiles(sourceFiles, encoding) {
  * property of the appropriate module doclets. The name of each class or function is also updated
  * for display purposes. This function mutates the original arrays.
  *
+ * @type Function
  * @private
  * @param {Array.<module:jsdoc/doclet.Doclet>} doclets - The array of classes and functions to
  * check.
@@ -409,6 +429,7 @@ function attachModuleSymbols(doclets, modules) {
 
 /**
  * Buold the navigation for members
+ * @type Function
  * @param  {Array} items - list of items
  * @param  {String} itemHeading - heading for navigation section
  * @param  {Object} itemsSeen - seen items
@@ -432,6 +453,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 itemsNav += '<li>' + linktoFn(item.longname, item.name.replace(/^module:/, ''));
                 if (members.length) {
                     itemsNav += "<ul class='members'>";
+                    itemsNav += "<li class='nav-type-header'>Members</li>";
 
                     members.forEach(function (member) {
                         itemsNav += "<li data-type='member'>";
@@ -443,6 +465,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 }
                 if (methods.length) {
                     itemsNav += "<ul class='methods'>";
+                    itemsNav += "<li class='nav-type-header'>Methods</li>";
 
                     methods.forEach(function (method) {
                         itemsNav += "<li data-type='method'>";
@@ -454,6 +477,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 }
                 if (typedefs.length) {
                     itemsNav += "<ul class='typedefs'>";
+                    itemsNav += "<li class='nav-type-header'>Typedefs</li>";
 
                     typedefs.forEach(function (typedef) {
                         itemsNav += "<li data-type='typedef'>";
@@ -480,6 +504,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 
 /**
  * create a link to the coresponding tutorial
+ * @type Function
  * @param  {String} longName - longname of doclet
  * @param  {String} name - name of doclet
  * @return {String} returns a string containing an HTML element
@@ -490,6 +515,7 @@ function linktoTutorial(longName, name) {
 
 /**
  * create a link to external resource
+ * @type Function
  * @param  {String} longName - longname of doclet
  * @param  {String} name - name of doclet
  * @return {String} returns a string containing an HTML element
@@ -500,6 +526,7 @@ function linktoExternal(longName, name) {
 
 /**
  * Create the navigation sidebar.
+ * @type Function
  * @param {object} members The members that will be used to create the sidebar.
  * @param {array<object>} members.classes
  * @param {array<object>} members.externals
@@ -549,9 +576,10 @@ function buildNav(members) {
 }
 
 /**
-    @param {TAFFY} taffyData See <http://taffydb.com/>.
-    @param {object} opts
-    @param {Tutorial} tutorials
+ * @type Function
+ * @param {TAFFY} taffyData See <http://taffydb.com/>.
+ * @param {object} opts
+ * @param {Tutorial} tutorials
  */
 exports.publish = function(taffyData, opts, tutorials) {
     data = taffyData;

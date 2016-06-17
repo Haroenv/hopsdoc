@@ -113,6 +113,21 @@
     padding: 0;
   }
 
+  .nav-type-header {
+    padding: 2rem 1rem 1rem 2rem;
+    &:before {
+      content:'';
+      display: inline-block;
+      height: 0;
+      width: 0;
+      border: .25rem solid transparent;
+      border-left-color: currentColor;
+      border-left-width: .25rem * 1.732050808;
+      margin-right: .5rem;
+      vertical-align: baseline;
+    }
+  }
+
   li {
     margin: .5em 0 2em;
 
