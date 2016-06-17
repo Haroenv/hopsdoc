@@ -2,21 +2,26 @@
 
 jsdoc theme for [hops](https://github.com/xing/hops)
 
-Forked from [this amazing theme](https://github.com/nathancahill/minami)
+Forked from [this theme](https://github.com/nathancahill/minami)
 
 ## DEMO
 
-I put some effort into a demo by documenting this (mostly not written by myself) code. FUN times.. fun times.
+Here's a a List of Projects that use this theme:
 
-* [hopsdoc documentation](http://xing.github.io/hopsdoc)
-* [hops documentation](http://xing.github.io/hops)
+- [hopsdoc documentation](http://xing.github.io/hopsdoc/docs/hopsdoc/0.1.6/) (this project)
+- [hops documentation](http://xing.github.io/hops) (originally made for this project)
 
-![demo.png](https://raw.githubusercontent.com/xing/hopsdoc/master/demo.png)
+<img src="https://raw.githubusercontent.com/xing/hopsdoc/master/demo.png" width="100%"/>
 
 ## Uses
 
-- [the Taffy Database library](http://taffydb.com/)
-- [Underscore Template library](http://documentcloud.github.com/underscore/#template)
+- [the Taffy Database library](http://taffydb.com/) (to handle data)
+- [Underscore Template library](http://documentcloud.github.com/underscore/#template) (as a base template language)
+- [Sass](http://sass-lang.com) (to generate the theme's CSS)
+- [Autoprefixer](https://github.com/postcss/autoprefixer) (to prefix styles)
+- [postcss](https://github.com/postcss/postcss) (to run autoprefixer)
+- [replace](https://github.com/harthur/replace) (rename delimiters)
+- [jsdoc](https://github.com/jsdo3/jsdoc) (to generate its own documentation)
 
 ## Install
 
@@ -33,11 +38,15 @@ $ jsdoc entry-file.js -t path/to/hopsdoc
 ```
 ## build this theme
 
-I'm not a fan of jsdoc's custom delimiters. This theme uses default underscore templates (`<%` instead of `<?js`)
-and has a script to transform to in both directions.
+This theme uses default underscore templates (`<%` instead of `<?js`)
+and has a script to transform in both directions. This way your code editor can highlight the code correctly.
 
-files in `tmpl` are not commited and should not be modified. This folder is generated and used as npm export.  
-If you want to convert your "custom delimiter theme" to make it compatible to this project you can replace the `tmpl` folder and generate your development version
+files in `tmpl` are not commited and should not be modified. The `tmpl` folder is generated and used as npm export.  
+If you want to convert your "custom delimiter theme" to make it compatible to this project you can replace the `tmpl` folder and generate your development version. 
+
+> Warning !!! generating a dev version from another template will remove the original theme entirely.
+> As long as you don't modify the content inside the `tmpl` folder you don't have to worry about 
+> accidently running the wrong command.
 
 ```bash
 ## generate custom delimiter version
@@ -52,8 +61,8 @@ npm run build
 
 ```bash
 cp node_modules/hopsdoc ./path/to/my/custom/theme
-cd ./path/to/my/custom/theme
-npm i 
+cd ./path/to/my/custom/theme/hopsdoc
+npm install 
 npm run watch-styles
 ## or ...
 ## modify styles in `.static/styles/*.scss`
