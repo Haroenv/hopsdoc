@@ -9,7 +9,7 @@
     "prepublish": "npm run build",
     "_to-custom": "rm -rf tmpl && cp -rf _tmpl tmpl && replace '<%' '<?js' tmpl -r && replace '%>' '?>' tmpl -r",
     "_from-custom": "rm -rf _tmpl && cp -rf tmpl _tmpl && replace '<\\?js' '<%' _tmpl -r && replace '\\?>'  '%>' _tmpl -r",
-    "docs": "rm -rf ./docs && jsdoc README.md publish.js package.json -d ./docs -t ./",
+    "docs": "rm -rf ./docs && jsdoc -p README.md publish.js package.json -d ./docs -t ./",
     "styles": "node-sass ./static/styles/jsdoc-default.scss -o ./static/styles",
     "watch-styles": "node-sass -w ./static/styles/jsdoc-default.scss -o ./static/styles"
   },

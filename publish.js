@@ -339,6 +339,11 @@ function generate(type, title, docs, filename, resolveLinks) {
     fs.writeFileSync(outpath, html, 'utf8');
 }
 
+/**
+ * generate source files for modules and files
+ * @param  {Object} sourceFiles Object containing all files
+ * @param  {String} encoding    character encoding
+ */
 function generateSourceFiles(sourceFiles, encoding) {
     encoding = encoding || 'utf8';
     Object.keys(sourceFiles).forEach(function(file) {
@@ -402,6 +407,14 @@ function attachModuleSymbols(doclets, modules) {
     });
 }
 
+/**
+ * Buold the navigation for members
+ * @param  {Array} items - list of items
+ * @param  {String} itemHeading - heading for navigation section
+ * @param  {Object} itemsSeen - seen items
+ * @param  {Function} linktoFn - function to create links
+ * @return {String} returns a string containing the navigation HTML code
+ */
 function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     var nav = '';
 
@@ -465,10 +478,22 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     return nav;
 }
 
+/**
+ * create a link to the coresponding tutorial
+ * @param  {String} longName - longname of doclet
+ * @param  {String} name - name of doclet
+ * @return {String} returns a string containing an HTML element
+ */
 function linktoTutorial(longName, name) {
     return tutoriallink(name);
 }
 
+/**
+ * create a link to external resource
+ * @param  {String} longName - longname of doclet
+ * @param  {String} name - name of doclet
+ * @return {String} returns a string containing an HTML element
+ */
 function linktoExternal(longName, name) {
     return linkto(longName, name.replace(/(^"|"$)/g, ''));
 }
@@ -770,7 +795,15 @@ exports.publish = function(taffyData, opts, tutorials) {
         }
     });
 
-    // TODO: move the tutorial functions to templateHelper.js
+    /**
+     * generate tutorial from given options
+     * @type {Function} 
+     * @name generateTutorial 
+     * @memberof module:publish 
+     * @param  {String} title - title of tutorial
+     * @param  {Tutorial} tutorial - tutorial to generate
+     * @param  {String} filename - filename for generated tutorial
+     */
     function generateTutorial(title, tutorial, filename) {
         var tutorialData = {
             title: title,
@@ -787,7 +820,14 @@ exports.publish = function(taffyData, opts, tutorials) {
         fs.writeFileSync(tutorialPath, html, 'utf8');
     }
 
-    // tutorials can have only one parent so there is no risk for loops
+    /**
+     * save tutorial children.
+     * tutorials can have only one parent so there is no risk for loops
+     * @type {Function} 
+     * @name saveChildren 
+     * @memberof module:publish 
+     * @param  {HTMLelement} node HTML element to use as root
+     */
     function saveChildren(node) {
         node.children.forEach(function(child) {
             generateTutorial('Tutorial: ' + child.title, child, helper.tutorialToUrl(child.name));
