@@ -2,18 +2,24 @@
 
 jsdoc theme for [hops](https://github.com/xing/hops)
 
-Forked from [this amazng theme](https://github.com/nathancahill/minami)
+Forked from [this amazing theme](https://github.com/nathancahill/minami)
+
+## DEMO
+
+I put some effort into a demo by documenting this (mostly not written by myself) code. FUN times.. fun times.
+
+* [hopsdoc documentation](http://xing.github.io/hopsdoc)
+* [hops documentation](http://xing.github.io/hops)
 
 ## Uses
 
 - [the Taffy Database library](http://taffydb.com/)
 - [Underscore Template library](http://documentcloud.github.com/underscore/#template)
-- [Montserrat](http://www.google.com/fonts/specimen/Monsterrat) & Helvetica Neue
 
 ## Install
 
 ```bash
-$ npm install --save-dev https://github.com/xing/hopsdoc.git
+$ npm install --save-dev hopsdoc
 ```
 
 ## Usage
@@ -22,6 +28,35 @@ Clone repository to your designated `jsdoc` template directory, then:
 
 ```bash
 $ jsdoc entry-file.js -t path/to/hopsdoc
+```
+## build this theme
+
+I'm not a fan of jsdoc's custom delimiters. This theme uses default underscore templates (`<%` instead of `<?js`)
+and has a script to transform to in both directions.
+
+files in `tmpl` are not commited and should not be modified. This folder is generated and used as npm export.  
+If you want to convert your "custom delimiter theme" to make it compatible to this project you can replace the `tmpl` folder and generate your development version
+
+```bash
+## generate custom delimiter version
+npm run _to-custom
+## generate default delimiter version
+npm run _from-custom
+## generate custom delimiter version and build styles
+npm run build
+```
+
+## add custom styling
+
+```bash
+cp node_modules/hopsdoc ./path/to/my/custom/theme
+cd ./path/to/my/custom/theme
+npm i 
+npm run watch-styles
+## or ...
+## modify styles in `.static/styles/*.scss`
+## then ...
+npm run styles
 ```
 
 ### Node.js Dependency

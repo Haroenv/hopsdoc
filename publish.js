@@ -1,3 +1,12 @@
+/**
+ * publishing script. This file will be executed by jsdoc
+ * @file publish.js
+ * @module publish
+ * @exports publish
+ * @author Nijiko Yonskai <nijikokun@gmail.com>
+ * @author Gregor Adams <greg@pixelass.com>
+ */
+
 /*global env: true */
 'use strict';
 
@@ -20,19 +29,42 @@ var data;
 var view;
 
 var outdir = path.normalize(env.opts.destination);
-
+/**
+ * find spec in global data
+ * @param  {Object} spec - options for searching and filtering
+ * @param  {Object} spec.kind - kind of doclet to look for
+ * @param  {Object} spec.memberof - filter by ancestors
+ * @return {Array}      returns a list of matches
+ */
 function find(spec) {
     return helper.find(data, spec);
 }
 
+/**
+ * create a link to a tutorial
+ * @param  {String} tutorial - tutorial = name of doclet
+ * @return {String}          returns an HTML element as a string
+ */
 function tutoriallink(tutorial) {
     return helper.toTutorial(tutorial, null, { tag: 'em', classname: 'disabled', prefix: 'Tutorial: ' });
 }
 
+/**
+ * create a link to a tutorial
+ * @param  {Object} doclet - doclet to look for
+ * @param  {Object} doclet.kind - kind of doclet to filter by
+ * @return {String}          returns an HTML element as a string
+ */
 function getAncestorLinks(doclet) {
     return helper.getAncestorLinks(data, doclet);
 }
 
+/**
+ * create a link from a hash
+ * @param  {Object} doclet - doclet to look for
+ * @param  {String} hash - jsdoc version of window.location hash's
+ * @return {String}          returns an HTML element as a string
+ */
 function hashToLink(doclet, hash) {
     if ( !/^(#.+)/.test(hash) ) { return hash; }
 
@@ -42,6 +74,12 @@ function hashToLink(doclet, hash) {
     return '<a href="' + url + '">' + hash + '</a>';
 }
 
+/**
+ * create a link from a hash
+ * @param  {Object} doclet - doclet to look for
+ * @param  {Object} doclet.kind - kind of doclet to filter by
+ * @return {Boolean}          returns true or false
+ */
 function needsSignature(doclet) {
     var needsSig = false;
 
@@ -63,6 +101,14 @@ function needsSignature(doclet) {
     return needsSig;
 }
 
+/**
+ * create a link from a hash
+ * @param  {Object} item - item to look for
+ * @param  {Boolean} item.optional - is item optional?
+ * @param  {Boolean} item.nullable - is item nullable?
+ * @param  {Boolean} item.optional - is item optional?
+ * @return {Array.<string>}          returns a list of attributes
+ */
 function getSignatureAttributes(item) {
     var attributes = [];
 
@@ -80,6 +126,11 @@ function getSignatureAttributes(item) {
     return attributes;
 }
 
+/**
+ * get an updated name for an item (respects variable & signatures)
+ * @param  {Object} item - item to update
+ * @return {String}      returns updated item name
+ */
 function updateItemName(item) {
     var attributes = getSignatureAttributes(item);
     var itemName = item.name || '';
@@ -96,12 +147,24 @@ function updateItemName(item) {
     return itemName;
 }
 
+/**
+ * add params 
+ * @param {Array} params - list of params to add
+ * @param {Array} returns an updated list
+ */
 function addParamAttributes(params) {
     return params.filter(function(param) {
         return param.name && param.name.indexOf('.') === -1;
     }).map(updateItemName);
 }
 
+/**
+ * build item types from item
+ * @param  {Object} item - item to use as source
+ * @param  {Object} item.type - item type
+ * @param  {Object} item.type.names - type names
+ * @return {Array.<string>}      returns a list of type strings
+ */
 function buildItemTypeStrings(item) {
     var types = [];
 
@@ -114,6 +177,11 @@ function buildItemTypeStrings(item) {
     return types;
 }
 
+/**
+ * build item types from item
+ * @param  {Array} attribs list of attributes
+ * @return {String}         returns a string of the list
+ */
 function buildAttribsString(attribs) {
     var attribsString = '';
 
@@ -124,6 +192,11 @@ function buildAttribsString(attribs) {
     return attribsString;
 }
 
+/**
+ * add attributes missing in params
+ * @param {Array} items - tiems to look at
+ * @return {Array} returns a list of types
+ */
 function addNonParamAttributes(items) {
     var types = [];
 
@@ -134,11 +207,23 @@ function addNonParamAttributes(items) {
     return types;
 }
 
+/**
+ * add signature params to function
+ * @param {Object} f function object
+ * @param {Object} [f.params=undefined] - params to include
+ * @param {Object} [f.signature=undefined] - signature to add
+ */
 function addSignatureParams(f) {
     var params = f.params ? addParamAttributes(f.params) : [];
     f.signature = util.format( '%s(%s)', (f.signature || ''), params.join(', ') );
 }
 
+/**
+ * add signature returns to function
+ * @param {Object} f function object
+ * @param {Object} [f.returns=undefined] - returns to include
+ * @param {Object} [f.signature=undefined] - signature to add
+ */
 function addSignatureReturns(f) {
     var attribs = [];
     var attribsString = '';
@@ -171,6 +256,12 @@ function addSignatureReturns(f) {
         '<span class="type-signature">' + returnTypesString + '</span>';
 }
 
+/**
+ * add signature types to function
+ * @param {Object} f function object
+ * @param {Object} [f.type=undefined] - types to include
+ * @param {Object} [f.signature=undefined] - signature to add
+ */
 function addSignatureTypes(f) {
     var types = f.type ? buildItemTypeStrings(f) : [];
 
@@ -178,6 +269,11 @@ function addSignatureTypes(f) {
         (types.length ? ' :' + types.join('|') : '') + '</span>';
 }
 
+/**
+ * add attributes to function
+ * @param {Object} f function object
+ * @param {Object} [f.attribs=undefined] - attributes to include
+ */
 function addAttribs(f) {
     var attribs = helper.getAttribs(f);
     var attribsString = buildAttribsString(attribs);
@@ -185,6 +281,12 @@ function addAttribs(f) {
     f.attribs = util.format('<span class="type-signature">%s</span>', attribsString);
 }
 
+/**
+ * shorten paths
+ * @param  {Object} files - Object containing files
+ * @param  {String|RegEx} commonPrefix - regex pattern or sting to replace
+ * @return {Object}              return the mutated Object
+ */
 function shortenPaths(files, commonPrefix) {
     Object.keys(files).forEach(function(file) {
         files[file].shortened = files[file].resolved.replace(commonPrefix, '')
@@ -195,6 +297,11 @@ function shortenPaths(files, commonPrefix) {
     return files;
 }
 
+/**
+ * extract path from doclet
+ * @param  {Object} doclet - doclet to extract from
+ * @return {String|null}     returns a path or filename unless no meta is given
+ */
 function getPathFromDoclet(doclet) {
     if (!doclet.meta) {
         return null;
@@ -205,6 +312,14 @@ function getPathFromDoclet(doclet) {
         doclet.meta.filename;
 }
 
+/**
+ * generate documentation
+ * @param  {String} type - type of doclet
+ * @param  {String} title - title of doclet
+ * @param  {Array} docs - list of documentations
+ * @param  {String} filename - name of file to generate
+ * @param  {Boolean} resolveLinks - relolve links (turn `{@link foo}` into `<a href="foodoc.html">foo</a>`) 
+ */
 function generate(type, title, docs, filename, resolveLinks) {
     resolveLinks = resolveLinks === false ? false : true;
 
