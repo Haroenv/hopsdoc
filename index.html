@@ -20,7 +20,7 @@
     <header>
       <div class="inner">
         <h1>Hopsdoc</h1>
-        <h2>Clean and minimal JSDoc 3 Template / Theme</h2>
+        <h2>Customizable esponsive theme for jsdoc</h2>
         <a href="https://github.com/xing/hopsdoc" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
@@ -36,99 +36,15 @@
 <h2>
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
 
-<p><a href="http://xing.github.io/hopsdoc/docs/hopsdoc/0.1.5/index.html">hopsdoc documentation</a></p>
+<p><a href="http://xing.github.io/hopsdoc/docs/hopsdoc/0.1.6/">hopsdoc documentation</a></p>
 
-<h2>
-<a id="uses" class="anchor" href="#uses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uses</h2>
-
-<ul>
-<li><a href="http://taffydb.com/">the Taffy Database library</a></li>
-<li><a href="http://documentcloud.github.com/underscore/#template">Underscore Template library</a></li>
-</ul>
 
 <h2>
 <a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
 
 <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev hopsdoc</pre></div>
 
-<h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
-
-<p>Clone repository to your designated <code>jsdoc</code> template directory, then:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ jsdoc entry-file.js -t path/to/hopsdoc</pre></div>
-
-<h2>
-<a id="build-this-theme" class="anchor" href="#build-this-theme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>build this theme</h2>
-
-<p>This theme uses default underscore templates (<code>&lt;%</code> instead of <code>&lt;?js</code>)
-and has a script to transform to in both directions.</p>
-
-<p>files in <code>tmpl</code> are not commited and should not be modified. This folder is generated and used as npm export.<br>
-If you want to convert your "custom delimiter theme" to make it compatible to this project you can replace the <code>tmpl</code> folder and generate your development version</p>
-
-<div class="highlight highlight-source-shell"><pre><span class="pl-c">## generate custom delimiter version</span>
-npm run _to-custom
-<span class="pl-c">## generate default delimiter version</span>
-npm run _from-custom
-<span class="pl-c">## generate custom delimiter version and build styles</span>
-npm run build</pre></div>
-
-<h2>
-<a id="add-custom-styling" class="anchor" href="#add-custom-styling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>add custom styling</h2>
-
-<div class="highlight highlight-source-shell"><pre>cp node_modules/hopsdoc ./path/to/my/custom/theme
-<span class="pl-c1">cd</span> ./path/to/my/custom/theme
-npm i 
-npm run watch-styles
-<span class="pl-c">## or ...</span>
-<span class="pl-c">## modify styles in `.static/styles/*.scss`</span>
-<span class="pl-c">## then ...</span>
-npm run styles</pre></div>
-
-<h3>
-<a id="nodejs-dependency" class="anchor" href="#nodejs-dependency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node.js Dependency</h3>
-
-<p>In your projects <code>package.json</code> file add a generate script:</p>
-
-<div class="highlight highlight-source-json"><pre><span class="pl-s"><span class="pl-pds">"</span>script<span class="pl-pds">"</span></span>: {
-  <span class="pl-s"><span class="pl-pds">"</span>generate-docs<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>jsdoc -c .jsdoc.json<span class="pl-pds">"</span></span>
-}</pre></div>
-
-<p>In your <code>.jsdoc.json</code> file, add a template option.</p>
-
-<div class="highlight highlight-source-json"><pre><span class="pl-s"><span class="pl-pds">"</span>opts<span class="pl-pds">"</span></span>: {
-  <span class="pl-s"><span class="pl-pds">"</span>template<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>node_modules/hopsdoc<span class="pl-pds">"</span></span>
-}</pre></div>
-
-<h3>
-<a id="example-jsdoc-config" class="anchor" href="#example-jsdoc-config" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example JSDoc Config</h3>
-
-<div class="highlight highlight-source-json"><pre>{
-    <span class="pl-s"><span class="pl-pds">"</span>tags<span class="pl-pds">"</span></span>: {
-        <span class="pl-s"><span class="pl-pds">"</span>allowUnknownTags<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
-        <span class="pl-s"><span class="pl-pds">"</span>dictionaries<span class="pl-pds">"</span></span>: [<span class="pl-s"><span class="pl-pds">"</span>jsdoc<span class="pl-pds">"</span></span>]
-    },
-    <span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>: {
-        <span class="pl-s"><span class="pl-pds">"</span>include<span class="pl-pds">"</span></span>: [<span class="pl-s"><span class="pl-pds">"</span>src<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>package.json<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>README.md<span class="pl-pds">"</span></span>],
-        <span class="pl-s"><span class="pl-pds">"</span>includePattern<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\\</span>.js$<span class="pl-pds">"</span></span>,
-        <span class="pl-s"><span class="pl-pds">"</span>excludePattern<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>(node_modules/|docs)<span class="pl-pds">"</span></span>
-    },
-    <span class="pl-s"><span class="pl-pds">"</span>plugins<span class="pl-pds">"</span></span>: [
-        <span class="pl-s"><span class="pl-pds">"</span>plugins/markdown<span class="pl-pds">"</span></span>
-    ],
-    <span class="pl-s"><span class="pl-pds">"</span>templates<span class="pl-pds">"</span></span>: {
-        <span class="pl-s"><span class="pl-pds">"</span>cleverLinks<span class="pl-pds">"</span></span>: <span class="pl-c1">false</span>,
-        <span class="pl-s"><span class="pl-pds">"</span>monospaceLinks<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>
-    },
-    <span class="pl-s"><span class="pl-pds">"</span>opts<span class="pl-pds">"</span></span>: {
-        <span class="pl-s"><span class="pl-pds">"</span>destination<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>docs/<span class="pl-pds">"</span></span>,
-        <span class="pl-s"><span class="pl-pds">"</span>encoding<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>utf8<span class="pl-pds">"</span></span>,
-        <span class="pl-s"><span class="pl-pds">"</span>private<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
-        <span class="pl-s"><span class="pl-pds">"</span>recurse<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
-        <span class="pl-s"><span class="pl-pds">"</span>template<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>node_modules/hopsdoc<span class="pl-pds">"</span></span>
-    }
-}</pre></div>
+</div>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
