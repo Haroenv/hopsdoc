@@ -9,8 +9,7 @@
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="css/jsdoc-default.css">
 </head>
 <body>
 
@@ -22,7 +21,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav class="main-nav">
-    <header class="nav-header"><h2><a href="index.html">Home</a></h2></header><header class="nav-header"><h3><span>Modules</span></h3></header><ul><li><a href="module-publish.html">publish</a><ul class='methods'><li data-type='method'><a href="module-publish.html#.publish">publish</a></li><li data-type='method'><a href="module-publish.html#~addAttribs">addAttribs</a></li><li data-type='method'><a href="module-publish.html#~addNonParamAttributes">addNonParamAttributes</a></li><li data-type='method'><a href="module-publish.html#~addParamAttributes">addParamAttributes</a></li><li data-type='method'><a href="module-publish.html#~addSignatureParams">addSignatureParams</a></li><li data-type='method'><a href="module-publish.html#~addSignatureReturns">addSignatureReturns</a></li><li data-type='method'><a href="module-publish.html#~addSignatureTypes">addSignatureTypes</a></li><li data-type='method'><a href="module-publish.html#~buildAttribsString">buildAttribsString</a></li><li data-type='method'><a href="module-publish.html#~buildItemTypeStrings">buildItemTypeStrings</a></li><li data-type='method'><a href="module-publish.html#~buildNav">buildNav</a></li><li data-type='method'><a href="module-publish.html#~find">find</a></li><li data-type='method'><a href="module-publish.html#~generate">generate</a></li><li data-type='method'><a href="module-publish.html#~getAncestorLinks">getAncestorLinks</a></li><li data-type='method'><a href="module-publish.html#~getPathFromDoclet">getPathFromDoclet</a></li><li data-type='method'><a href="module-publish.html#~getSignatureAttributes">getSignatureAttributes</a></li><li data-type='method'><a href="module-publish.html#~hashToLink">hashToLink</a></li><li data-type='method'><a href="module-publish.html#~needsSignature">needsSignature</a></li><li data-type='method'><a href="module-publish.html#~shortenPaths">shortenPaths</a></li><li data-type='method'><a href="module-publish.html#~tutoriallink">tutoriallink</a></li><li data-type='method'><a href="module-publish.html#~updateItemName">updateItemName</a></li></ul></li></ul>
+    <header class="nav-header"><h2><a href="index.html">Home</a></h2></header><header class="nav-header"><h3><span>Modules</span></h3></header><ul><li><a href="module-publish.html">publish</a><ul class='members'><li class='nav-type-header'>Members</li><li data-type='member'><a href="module-publish.html#.generateTutorial">generateTutorial</a></li><li data-type='member'><a href="module-publish.html#.saveChildren">saveChildren</a></li></ul><ul class='methods'><li class='nav-type-header'>Methods</li><li data-type='method'><a href="module-publish.html#.publish">publish</a></li><li data-type='method'><a href="module-publish.html#~addAttribs">addAttribs</a></li><li data-type='method'><a href="module-publish.html#~addNonParamAttributes">addNonParamAttributes</a></li><li data-type='method'><a href="module-publish.html#~addParamAttributes">addParamAttributes</a></li><li data-type='method'><a href="module-publish.html#~addSignatureParams">addSignatureParams</a></li><li data-type='method'><a href="module-publish.html#~addSignatureReturns">addSignatureReturns</a></li><li data-type='method'><a href="module-publish.html#~addSignatureTypes">addSignatureTypes</a></li><li data-type='method'><a href="module-publish.html#~attachModuleSymbols">attachModuleSymbols</a></li><li data-type='method'><a href="module-publish.html#~buildAttribsString">buildAttribsString</a></li><li data-type='method'><a href="module-publish.html#~buildItemTypeStrings">buildItemTypeStrings</a></li><li data-type='method'><a href="module-publish.html#~buildMemberNav">buildMemberNav</a></li><li data-type='method'><a href="module-publish.html#~buildNav">buildNav</a></li><li data-type='method'><a href="module-publish.html#~find">find</a></li><li data-type='method'><a href="module-publish.html#~generate">generate</a></li><li data-type='method'><a href="module-publish.html#~generateSourceFiles">generateSourceFiles</a></li><li data-type='method'><a href="module-publish.html#~getAncestorLinks">getAncestorLinks</a></li><li data-type='method'><a href="module-publish.html#~getPathFromDoclet">getPathFromDoclet</a></li><li data-type='method'><a href="module-publish.html#~getSignatureAttributes">getSignatureAttributes</a></li><li data-type='method'><a href="module-publish.html#~hashToLink">hashToLink</a></li><li data-type='method'><a href="module-publish.html#~linktoExternal">linktoExternal</a></li><li data-type='method'><a href="module-publish.html#~linktoTutorial">linktoTutorial</a></li><li data-type='method'><a href="module-publish.html#~needsSignature">needsSignature</a></li><li data-type='method'><a href="module-publish.html#~shortenPaths">shortenPaths</a></li><li data-type='method'><a href="module-publish.html#~tutoriallink">tutoriallink</a></li><li data-type='method'><a href="module-publish.html#~updateItemName">updateItemName</a></li></ul></li></ul>
 </nav>
 
 <main id="main" class="main-content">
@@ -70,6 +69,7 @@ var view;
 var outdir = path.normalize(env.opts.destination);
 /**
  * find spec in global data
+ * @type Function
  * @param  {Object} spec - options for searching and filtering
  * @param  {Object} spec.kind - kind of doclet to look for
  * @param  {Object} spec.memberof - filter by ancestors
@@ -81,6 +81,7 @@ function find(spec) {
 
 /**
  * create a link to a tutorial
+ * @type Function
  * @param  {String} tutorial - tutorial = name of doclet
  * @return {String}          returns an HTML element as a string
  */
@@ -90,6 +91,7 @@ function tutoriallink(tutorial) {
 
 /**
  * create a link to a tutorial
+ * @type Function
  * @param  {Object} doclet - doclet to look for
  * @param  {Object} doclet.kind - kind of doclet to filter by
  * @return {String}          returns an HTML element as a string
@@ -100,6 +102,7 @@ function getAncestorLinks(doclet) {
 
 /**
  * create a link from a hash
+ * @type Function
  * @param  {Object} doclet - doclet to look for
  * @param  {String} hash - jsdoc version of window.location hash's
  * @return {String}          returns an HTML element as a string
@@ -115,6 +118,7 @@ function hashToLink(doclet, hash) {
 
 /**
  * create a link from a hash
+ * @type Function
  * @param  {Object} doclet - doclet to look for
  * @param  {Object} doclet.kind - kind of doclet to filter by
  * @return {Boolean}          returns true or false
@@ -142,6 +146,7 @@ function needsSignature(doclet) {
 
 /**
  * create a link from a hash
+ * @type Function
  * @param  {Object} item - item to look for
  * @param  {Boolean} item.optional - is item optional?
  * @param  {Boolean} item.nullable - is item nullable?
@@ -167,6 +172,7 @@ function getSignatureAttributes(item) {
 
 /**
  * get an updated name for an item (respects variable &amp; signatures)
+ * @type Function
  * @param  {Object} item - item to update
  * @return {String}      returns updated item name
  */
@@ -188,6 +194,7 @@ function updateItemName(item) {
 
 /**
  * add params 
+ * @type Function
  * @param {Array} params - list of params to add
  * @param {Array} returns an updated list
  */
@@ -199,6 +206,7 @@ function addParamAttributes(params) {
 
 /**
  * build item types from item
+ * @type Function
  * @param  {Object} item - item to use as source
  * @param  {Object} item.type - item type
  * @param  {Object} item.type.names - type names
@@ -218,6 +226,7 @@ function buildItemTypeStrings(item) {
 
 /**
  * build item types from item
+ * @type Function
  * @param  {Array} attribs list of attributes
  * @return {String}         returns a string of the list
  */
@@ -233,6 +242,7 @@ function buildAttribsString(attribs) {
 
 /**
  * add attributes missing in params
+ * @type Function
  * @param {Array} items - tiems to look at
  * @return {Array} returns a list of types
  */
@@ -248,6 +258,7 @@ function addNonParamAttributes(items) {
 
 /**
  * add signature params to function
+ * @type Function
  * @param {Object} f function object
  * @param {Object} [f.params=undefined] - params to include
  * @param {Object} [f.signature=undefined] - signature to add
@@ -259,6 +270,7 @@ function addSignatureParams(f) {
 
 /**
  * add signature returns to function
+ * @type Function
  * @param {Object} f function object
  * @param {Object} [f.returns=undefined] - returns to include
  * @param {Object} [f.signature=undefined] - signature to add
@@ -297,6 +309,7 @@ function addSignatureReturns(f) {
 
 /**
  * add signature types to function
+ * @type Function
  * @param {Object} f function object
  * @param {Object} [f.type=undefined] - types to include
  * @param {Object} [f.signature=undefined] - signature to add
@@ -310,6 +323,7 @@ function addSignatureTypes(f) {
 
 /**
  * add attributes to function
+ * @type Function
  * @param {Object} f function object
  * @param {Object} [f.attribs=undefined] - attributes to include
  */
@@ -322,6 +336,7 @@ function addAttribs(f) {
 
 /**
  * shorten paths
+ * @type Function
  * @param  {Object} files - Object containing files
  * @param  {String|RegEx} commonPrefix - regex pattern or sting to replace
  * @return {Object}              return the mutated Object
@@ -338,6 +353,7 @@ function shortenPaths(files, commonPrefix) {
 
 /**
  * extract path from doclet
+ * @type Function
  * @param  {Object} doclet - doclet to extract from
  * @return {String|null}     returns a path or filename unless no meta is given
  */
@@ -353,6 +369,7 @@ function getPathFromDoclet(doclet) {
 
 /**
  * generate documentation
+ * @type Function
  * @param  {String} type - type of doclet
  * @param  {String} title - title of doclet
  * @param  {Array} docs - list of documentations
@@ -378,6 +395,12 @@ function generate(type, title, docs, filename, resolveLinks) {
     fs.writeFileSync(outpath, html, 'utf8');
 }
 
+/**
+ * generate source files for modules and files
+ * @type Function
+ * @param  {Object} sourceFiles Object containing all files
+ * @param  {String} encoding    character encoding
+ */
 function generateSourceFiles(sourceFiles, encoding) {
     encoding = encoding || 'utf8';
     Object.keys(sourceFiles).forEach(function(file) {
@@ -406,6 +429,7 @@ function generateSourceFiles(sourceFiles, encoding) {
  * property of the appropriate module doclets. The name of each class or function is also updated
  * for display purposes. This function mutates the original arrays.
  *
+ * @type Function
  * @private
  * @param {Array.&lt;module:jsdoc/doclet.Doclet>} doclets - The array of classes and functions to
  * check.
@@ -441,6 +465,15 @@ function attachModuleSymbols(doclets, modules) {
     });
 }
 
+/**
+ * Buold the navigation for members
+ * @type Function
+ * @param  {Array} items - list of items
+ * @param  {String} itemHeading - heading for navigation section
+ * @param  {Object} itemsSeen - seen items
+ * @param  {Function} linktoFn - function to create links
+ * @return {String} returns a string containing the navigation HTML code
+ */
 function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     var nav = '';
 
@@ -458,6 +491,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 itemsNav += '&lt;li>' + linktoFn(item.longname, item.name.replace(/^module:/, ''));
                 if (members.length) {
                     itemsNav += "&lt;ul class='members'>";
+                    itemsNav += "&lt;li class='nav-type-header'>Members&lt;/li>";
 
                     members.forEach(function (member) {
                         itemsNav += "&lt;li data-type='member'>";
@@ -469,6 +503,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 }
                 if (methods.length) {
                     itemsNav += "&lt;ul class='methods'>";
+                    itemsNav += "&lt;li class='nav-type-header'>Methods&lt;/li>";
 
                     methods.forEach(function (method) {
                         itemsNav += "&lt;li data-type='method'>";
@@ -480,6 +515,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                 }
                 if (typedefs.length) {
                     itemsNav += "&lt;ul class='typedefs'>";
+                    itemsNav += "&lt;li class='nav-type-header'>Typedefs&lt;/li>";
 
                     typedefs.forEach(function (typedef) {
                         itemsNav += "&lt;li data-type='typedef'>";
@@ -504,16 +540,31 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
     return nav;
 }
 
+/**
+ * create a link to the coresponding tutorial
+ * @type Function
+ * @param  {String} longName - longname of doclet
+ * @param  {String} name - name of doclet
+ * @return {String} returns a string containing an HTML element
+ */
 function linktoTutorial(longName, name) {
     return tutoriallink(name);
 }
 
+/**
+ * create a link to external resource
+ * @type Function
+ * @param  {String} longName - longname of doclet
+ * @param  {String} name - name of doclet
+ * @return {String} returns a string containing an HTML element
+ */
 function linktoExternal(longName, name) {
     return linkto(longName, name.replace(/(^"|"$)/g, ''));
 }
 
 /**
  * Create the navigation sidebar.
+ * @type Function
  * @param {object} members The members that will be used to create the sidebar.
  * @param {array&lt;object>} members.classes
  * @param {array&lt;object>} members.externals
@@ -563,9 +614,10 @@ function buildNav(members) {
 }
 
 /**
-    @param {TAFFY} taffyData See &lt;http://taffydb.com/>.
-    @param {object} opts
-    @param {Tutorial} tutorials
+ * @type Function
+ * @param {TAFFY} taffyData See &lt;http://taffydb.com/>.
+ * @param {object} opts
+ * @param {Tutorial} tutorials
  */
 exports.publish = function(taffyData, opts, tutorials) {
     data = taffyData;
@@ -809,7 +861,15 @@ exports.publish = function(taffyData, opts, tutorials) {
         }
     });
 
-    // TODO: move the tutorial functions to templateHelper.js
+    /**
+     * generate tutorial from given options
+     * @type {Function} 
+     * @name generateTutorial 
+     * @memberof module:publish 
+     * @param  {String} title - title of tutorial
+     * @param  {Tutorial} tutorial - tutorial to generate
+     * @param  {String} filename - filename for generated tutorial
+     */
     function generateTutorial(title, tutorial, filename) {
         var tutorialData = {
             title: title,
@@ -826,7 +886,14 @@ exports.publish = function(taffyData, opts, tutorials) {
         fs.writeFileSync(tutorialPath, html, 'utf8');
     }
 
-    // tutorials can have only one parent so there is no risk for loops
+    /**
+     * save tutorial children.
+     * tutorials can have only one parent so there is no risk for loops
+     * @type {Function} 
+     * @name saveChildren 
+     * @memberof module:publish 
+     * @param  {HTMLelement} node HTML element to use as root
+     */
     function saveChildren(node) {
         node.children.forEach(function(child) {
             generateTutorial('Tutorial: ' + child.title, child, helper.tutorialToUrl(child.name));
@@ -849,7 +916,7 @@ exports.publish = function(taffyData, opts, tutorials) {
 
 
 <footer class="main-footer">
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Jun 17 2016 13:50:43 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Jun 17 2016 15:28:07 GMT+0200 (CEST)
 </footer>
 
 <script>prettyPrint();</script>
