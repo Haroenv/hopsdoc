@@ -13,16 +13,6 @@ Here's a a List of Projects that use this theme:
 
 <img src="https://raw.githubusercontent.com/xing/hopsdoc/master/demo.png" width="100%"/>
 
-## Uses
-
-- [the Taffy Database library](http://taffydb.com/) (to handle data)
-- [Underscore Template library](http://documentcloud.github.com/underscore/#template) (as a base template language)
-- [Sass](http://sass-lang.com) (to generate the theme's CSS)
-- [Autoprefixer](https://github.com/postcss/autoprefixer) (to prefix styles)
-- [postcss](https://github.com/postcss/postcss) (to run autoprefixer)
-- [replace](https://github.com/harthur/replace) (rename delimiters)
-- [jsdoc](https://github.com/jsdo3/jsdoc) (to generate its own documentation)
-
 ## Install
 
 ```bash
@@ -105,7 +95,7 @@ In your `.jsdoc.json` file, add a template option.
         "plugins/markdown"
     ],
     "templates": {
-        "cleverLinks": false,
+        "cleverLinks": true,
         "monospaceLinks": true
     },
     "opts": {
