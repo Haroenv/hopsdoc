@@ -1,6 +1,6 @@
 {
   "name": "hopsdoc",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "jsdoc theme for hops",
   "main": "publish.js",
   "scripts": {
